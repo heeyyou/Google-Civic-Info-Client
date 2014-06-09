@@ -1,11 +1,12 @@
 {
-  "name": "G-Civic-Info",
+  "name": "Google-Civic-Info-Client",
   "version": "0.1.1",
   "description": "Node.js Google Civic API client",
   "homepage": "https://github.com/palanik",
   "keywords": [
     "civic",
     "civic-api",
+    "civic-api client",
     "google",
     "api"
   ],
@@ -15,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/palanik/G-Civic.git"
+    "url": "git://github.com/palanik/Google-Civic-Info-Client.git"
   },
   "publishConfig": {
     "registry" : "https://registry.npmjs.org"
