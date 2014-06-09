@@ -21,7 +21,8 @@
     "registry" : "https://registry.npmjs.org"
   },
   "dependencies": {
-    "request": "*"
+    "request": "2.36.0",
+    "urlpattern" : "0.1.0"
   },
   "devDependencies": {
     "mocha": "*",
