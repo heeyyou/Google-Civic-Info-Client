@@ -83,17 +83,20 @@ function CivicInfo(options) {
 
 	function defineEndpoint(e, endPoint) {
 		self[e] = function(opts, callback) {
+			var args = arguments;
+
 			// If path had place holders, arguments contain values
 			var placeholders = [];
 			var regexp = pattern.parse(endPoint.path, placeholders);
 			var values = {};
 			placeholders.forEach(function(ph) {
-				values[ph.name] = [].shift.call(arguments);
+				values[ph.name] = [].shift.call(args);
 			});
+			var path = pattern.transform(endPoint.path, values);
 
 			var content = null;
 			if (endPoint.method === 'POST') {
-				content = [].shift.call(arguments);
+				content = [].shift.call(args);
 			}
 
 			// options provided?
@@ -102,9 +105,9 @@ function CivicInfo(options) {
 				opts = {};
 			}
 
-			opts = override(self._options, opts)
+			opts = override(self._options, opts);
 
-			query(endPoint.method, endPoint.path, content, opts, callback);
+			query(endPoint.method, path, content, opts, callback);
 			
 		};
 
