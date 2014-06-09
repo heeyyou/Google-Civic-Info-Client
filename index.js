@@ -42,15 +42,14 @@ _requests['POST'] = function(url, options, callback, content) {
 	request.post(url,
 					{
 						qs: options,
-						body: JSON.stringify(content),
-    					headers: {'Content-Type': 'application/json'}
+						json : content
 					},
-					function(e, r, body) {
+					function(e, r, json) {
 						if (e) {
 							callback(e);
 						}
 						else {
-							callback(null, JSON.parse(body));
+							callback(null, json);
 						}
 					}
 				);
